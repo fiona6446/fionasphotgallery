@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightpink;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .gallery img:focus, .gallery img:hover {
+            border-color: blue;
+        }
+        #largeImage {
+            width: 400px;
+            height: auto;
+            margin-top: 20px;
+            display: block;
+        }
+        #imageDescription {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Interactive Photo Gallery</h1>
+    <div class="gallery">
+        <img src="att.vqsPyXwaoR6r5u_wrB369ZRIZ81mE0RyVZPuJHIp40c.jpeg" alt="sonny angel looking back koala" tabindex="0" onmouseover="updateImage(this)" onmouseleave="resetImage()" onfocus="updateImage(this)" onblur="resetImage()">
+        <img src="4DFC7798-C04A-4031-A729-0D911EE9385E.jpeg" alt="badminton with friends" tabindex="0" onmouseover="updateImage(this)" onmouseleave="resetImage()" onfocus="updateImage(this)" onblur="resetImage()">
+        <img src="IMG_4290.jpeg" alt="beautiful sunset" tabindex="0" onmouseover="updateImage(this)" onmouseleave="resetImage()" onfocus="updateImage(this)" onblur="resetImage()">
+        <img src="IMG_4515.jpeg" alt="my favorite mochi and matcha ice cream" tabindex="0" onmouseover="updateImage(this)" onmouseleave="resetImage()" onfocus="updateImage(this)" onblur="resetImage()">
+        <img src="IMG_4597.jpeg" alt="k-bbq with friends" tabindex="0" onmouseover="updateImage(this)" onmouseleave="resetImage()" onfocus="updateImage(this)" onblur="resetImage()">
+        <img src="IMG_4139.jpeg" alt="my badminton outfit" tabindex="0" onmouseover="updateImage(this)" onmouseleave="resetImage()" onfocus="updateImage(this)" onblur="resetImage()">
+    </div>
+    <img id="largeImage" src="" alt="Hover over an image to see it here!">
+    <p id="imageDescription">Hover over an image to see its description!</p>
+    <script>
+        function updateImage(image) {
+            document.getElementById('largeImage').src = image.src;
+            document.getElementById('largeImage').alt = image.alt;
+            document.getElementById('imageDescription').innerText = image.alt;
+            console.log("Updated image: " + image.alt);
+        }
+        function resetImage() {
+            document.getElementById('largeImage').src = "";
+            document.getElementById('largeImage').alt = "Hover over an image to see it here!";
+            document.getElementById('imageDescription').innerText = "Hover over an image to see its description!";
+            console.log("Image reset");
+        }
+    </script>
+</body>
+</html>
